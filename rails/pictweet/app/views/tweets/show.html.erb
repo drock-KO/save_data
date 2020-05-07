@@ -1,0 +1,58 @@
+<div class="contents row">
+  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+        </li>
+      </ul>
+      </div>
+    <% end %>
+      <%= simple_format(@tweet.text) %>
+      <span class="name">
+        <a href="/users/<%= @tweet.user.id %>">
+          <span>投稿者</span><%= @tweet.user.nickname %>
+        </a>
+
+
+
+        <h3><%#= link_to "#{@tweet.likes.count}件のふぁぼ", root_path %></h3>
+        <%# if current_user.already_liked?(@tweet) %>
+          <%#= button_to 'ふぁぼを消す', tweet_like_path(@tweet), method: :delete %>
+        <%# else %>
+          <%#= button_to 'ふぁぼ', tweet_likes_path(@tweet) %>
+        <%# end %>
+      </span>
+  </div>
+  <div class="container">
+    <% if current_user %>
+      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+      
+<%= form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form| %> 
+  <%= form.text_area :text, placeholder: "コメントする" , rows: "2", class: "textbox" %>
+  <%= form.submit "SEND", class: "form__submit" %>
+      <% end %>
+    <% end %>
+    
+    <div class="comments">
+      <h4>👺コメント一覧👺</h4>
+      <% if @comments %>
+       <%= render partial: 'index', collection: @comments, :as => "comment" %>
+        <%# @comments.each do |comment| %>
+                     <!--<p>-->
+            <!--  <strong><%#= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>-->
+            <!--  <%#= comment.text %>-->
+            <!--</p>-->
+        <%# end %>      
+      <% end %>
+    </div>    
+  </div>
+</div>

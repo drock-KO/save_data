@@ -1,0 +1,19 @@
+<div class="contents row" >
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+  <% end %>
+
+    <h3>ふぁぼしたtweet</h3>
+  <% @user.liked_tweets.each do |tweet| %>
+    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+      <%= simple_format (tweet.text) %>
+      
+      <span class="name">
+          <span>投稿者</span><%= tweet.user.nickname %>
+      </span>
+    </div>
+  <% end %>
+  
+  <%= paginate(@tweets) %>
+</div>

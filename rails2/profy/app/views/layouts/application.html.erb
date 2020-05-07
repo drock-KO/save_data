@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <!--X-UA-Compatible・・・各ブラウザでのバージョン互換を照準する。'IE=Edge,chrome=1'のように、IEなら最新版に、クロームならバージョン1に。-->
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'>
+    <!--viewportが、実際の端末液晶に表示してくれる画面の呼び出し。'width=device-width'で各端末ごとの幅をフレキシブルに決める。'Initial Scale'が初期倍率-->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    
+    <!--⬇︎この書き方をprovideメソッドという。yieldで読み込みビューファイルによって上書きすることができる。-->
+    <title>Profy<%= yield :title %></title>
+    <%= csrf_meta_tags %>
+    <!--実際にcssを読み込むためのタグ。media: 'all'は全ての端末に対して有効にする。'data-turbolinks-track': 'reload'は、次ページ遷移時にリソースの更新を確認し、必要に応じてリロードする。-->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <script type='text/javascript' charset='utf-8'>
+      $(function(){
+        $.material.init();
+      });
+    </script>
+    <%= render partial: 'common/header' %>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12'>
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+      <footer class='row text-center'>
+        <p>(C) Profy 2018</p>
+      </footer>
+    </div>
+  </body>
+</html>

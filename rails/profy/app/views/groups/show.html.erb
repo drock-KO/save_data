@@ -1,0 +1,18 @@
+<% provide :title, " | #{@user.key}さん" %>
+
+<div class="row form">
+  <div class="col-lg-12">
+    <h3>
+      <small class="edit">
+        <%= link_to "編集", edit_group_path(@group) %>
+      </small>
+    </h3>
+    <p><%= @group.detail.blank? ? "このグループの説明はありません" : @group.detail %></p>
+      <h3>Member List</h3>
+    <div class="list-group">
+      <% @group.users.each do |user| %>
+      <div class="list-group-item"><%= link_to user.name, user_path(user) %><hr></div>
+    <% end %>
+    </div>
+  </div>
+</div>

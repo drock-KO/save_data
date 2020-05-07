@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 24px rgba(0,0,0,0.2);
+  margin: 15px 20px;
+  padding: 22px 40px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+.logo {
+  width: 194px;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-item {
+  margin: 0 15px;
+}
+
+.menu-item-link {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.menu-item-link.button-red {
+  background-color: red;
+  border-radius: 20px;
+  padding: 12px 30px;
+  color: #ffffff;
+}
+
+.first-view {
+  background-image: url(../images/firstview.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.first-view-textarea {
+  padding: 220px 60px;
+}
+.catchcopy {
+  font-size: 72px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -3.2px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.submit {
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: bold;
+  letter-spacing: 3.2px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.service-section-bar {
+  background-color: #323232;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 900;
+  padding: 25px 0;
+  text-align: center;
+  letter-spacing: 3.2px;
+}
+
+.service-cardarea {
+  display: flex; 
+}
+
+.service-textarea {
+  text-align: center;
+}
+
+.service-card{
+  width: 33.333%;
+}
+
+.service-logo {
+  margin-top: 10px;
+  width: 227px;
+}
+
+.service-btn {
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 80px;
+  margin-top: 16px;
+  margin-bottom: 30px;
+  font-weight: 900;
+  background-color: #11376b;
+  border-radius: 22px;
+}
+
+.service-btn.btn-red {
+  background-color: #a93032;
+}
+
+.service-card + .service-card .service-textarea {
+  border-left: 1px solid #ddd;
+}
+
+.copyright {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 10px;
+  color: white;
+  background-color: black;
+}

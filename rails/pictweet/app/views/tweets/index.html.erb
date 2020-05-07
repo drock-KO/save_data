@@ -1,0 +1,13 @@
+
+  <div class="contents row">
+    <p>投稿一覧</p>
+        <% @tweets.each do |tweet| %>
+          <%= render partial: "tweet", locals: { tweet:tweet } %>
+          <%#= render partial: "common/like", locals: { tweet:tweet, likes: @likes } %>
+        <% end %>
+        <%= paginate(@tweets) %>
+  </div>
+  
+  
+
+
